@@ -56,7 +56,8 @@ if not os.path.exists(YOLO_DIR + 'cfg/yolo-{}.cfg'.format(PROJECT_NM)):
 
 train_flag = input('Do you wish to train? [Y/N]')
 if train_flag == 'Y':
-    YOLO_TRAIN_CMD = YOLO_DIR + 'darknet detector train {}cfg/{}.data {}cfg/yolo-{}.cfg darknet19_448.conv.23'.format(YOLO_DIR, PROJECT_NM, YOLO_DIR, PROJECT_NM)
+    os.chdir(YOLO_DIR)
+    YOLO_TRAIN_CMD = './darknet detector train {}cfg/{}.data {}cfg/yolo-{}.cfg darknet19_448.conv.23'.format(YOLO_DIR, PROJECT_NM, YOLO_DIR, PROJECT_NM)
     subprocess.call(YOLO_TRAIN_CMD, shell=True)
 else:
     print('Configuration Complete!')
