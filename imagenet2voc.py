@@ -22,7 +22,7 @@ def convert(size, box):
 def main(PROJECT_NM):
     PROJ_DIR = os.environ['HOME'] + '/' + PROJECT_NM
     ANNO_DIR = PROJ_DIR + '/annotated/'
-    IMGS_DIR = PROJ_DIR + '/imgs/'
+    IMGS_DIR = PROJ_DIR + '/raw/' #'/imgs/'
     LBLS_DIR = PROJ_DIR + '/labels/'
     DATA_DIR = os.environ['HOME'] + '/darknet/data/'
 
@@ -53,7 +53,7 @@ def main(PROJECT_NM):
                     out_string = cls + ' ' + ' '.join(list(map(str, bb))) + '\n'
                     out_file.write(out_string)
             if os.path.exists(LBLS_DIR + '{}.txt'.format(img_id)):
-                full_lst.append(PROJ_DIR + '/imgs/' + img)
+                full_lst.append(PROJ_DIR + '/raw/' + img)
         except:
             pass
 
