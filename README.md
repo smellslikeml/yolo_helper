@@ -10,7 +10,7 @@ You might obtain images through your favorite search engine. Using the Firefox b
 ## Getting Started
 ```
 git clone https://github.com/smellslikeml/yolo_helper.git
-cd yolo_get_prep_config
+cd yolo_helper
 python yolo_finetune.py
 ```
 You will be prompted to enter a name for the project and the yolo repo will be installed if it is not already in the home directory.
