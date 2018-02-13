@@ -84,5 +84,3 @@ def main(PROJECT_NM):
         subprocess.call(swap_string, shell=True)
     return class_lst
 
-if __name__ == '__main__':
-    print(main('yellow_leaves'))

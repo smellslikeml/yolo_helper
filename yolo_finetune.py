@@ -6,8 +6,7 @@ from imagenet2voc import *
 HOME_DIR = os.environ['HOME']
 YOLO_DIR = HOME_DIR + '/darknet/'
 
-#PROJECT_NM = input('Please Enter a Unique Project Name: ')
-PROJECT_NM = 'yellow_leaves'
+PROJECT_NM = input('Please Enter a Unique Project Name: ')
 while not os.path.exists(HOME_DIR + '/' + PROJECT_NM):
     os.mkdir(HOME_DIR + '/' + PROJECT_NM)
 
