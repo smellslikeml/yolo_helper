@@ -4,8 +4,6 @@ import subprocess
 import numpy as np
 import xml.etree.ElementTree as ET
 import sys
-reload(sys)
-sys.setdefaultencoding('UTF8')
 
 
 def convert(size, box):
@@ -52,7 +50,7 @@ def main(PROJECT_NM):
                     xmlbox = obj.find('bndbox')
                     b = (float(xmlbox.find('xmin').text), float(xmlbox.find('xmax').text), float(xmlbox.find('ymin').text), float(xmlbox.find('ymax').text))
                     bb = convert((w,h), b)
-                    out_string = '0 ' + ' '.join(list(map(str, bb))) + '\n'
+                    out_string = cls + ' ' + ' '.join(list(map(str, bb))) + '\n'
                     out_file.write(out_string)
             if os.path.exists(LBLS_DIR + '{}.txt'.format(img_id)):
                 full_lst.append(PROJ_DIR + '/imgs/' + img)
@@ -80,10 +78,10 @@ def main(PROJECT_NM):
 
     class_lst = sorted(list(class_dict.keys()))
     class_dict = {cls:idx for idx, cls in enumerate(class_lst)}
-    '''
     for cls in class_lst:
-        subprocess.call("find %r -type f -exec sed -i 's/%r/%r/g' {} \;"%(LBLS_DIR, cls, class_dict[cls]), shell=True)
-    '''
+        swap_string = "find {} -type f -exec sed -i 's/{}/{}/g'".format(LBLS_DIR, cls, class_dict[cls])
+        swap_string += " {} \;"
+        subprocess.call(swap_string, shell=True)
     return class_lst
 
 if __name__ == '__main__':
