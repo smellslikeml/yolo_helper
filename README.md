@@ -1,4 +1,4 @@
-# yolo_get_prep_config
+# yolo_helper
 These scripts help to streamline the installation and configuration of Yolo as well as the preprocessing of ImageNet formatted xml files into the VOC formatted text files for fine-tuning.
 
 Assumes you have raw images as well as the xml files defining the bounding boxes and labels.
@@ -9,7 +9,7 @@ You might obtain images through your favorite search engine. Using the Firefox b
 
 ## Getting Started
 ```
-git clone https://addons.mozilla.org/en-US/firefox/addon/google-images-downloader/
+git clone https://github.com/smellslikeml/yolo_helper.git
 cd yolo_get_prep_config
 python yolo_finetune.py
 ```
