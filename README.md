@@ -20,5 +20,5 @@ You will be prompted to enter a name for the project and the yolo repo will be i
 * Make options for CUDA/OpenCV
 * options for train/val/test splits
 * other model weights & config
-
+* convert images
 

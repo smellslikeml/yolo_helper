@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 import subprocess
-from imagenet_to_voc import *
+from imagenet_xml2voc import *
 
 HOME_DIR = os.environ['HOME']
 YOLO_DIR = HOME_DIR + '/darknet/'
@@ -9,6 +9,9 @@ YOLO_DIR = HOME_DIR + '/darknet/'
 PROJECT_NM = input('Please Enter a Unique Project Name: ')
 while not os.path.exists(HOME_DIR + '/' + PROJECT_NM):
     os.mkdir(HOME_DIR + '/' + PROJECT_NM)
+
+while not os.path.exists('/'.join([HOME_DIR, PROJECT_NM, 'labels'])):
+    os.mkdir('/'.join([HOME_DIR, PROJECT_NM, 'labels']))
 
 if not os.path.exists(YOLO_DIR):
     subprocess.call('git clone https://github.com/pjreddie/darknet', shell=True)
@@ -18,7 +21,8 @@ if not os.path.exists(YOLO_DIR):
 if not os.path.exists(YOLO_DIR + 'darknet19_448.conv.23'):
     subprocess.call('wget https://pjreddie.com/media/files/darknet19_448.conv.23', shell=True)
 
-class_lst = voc_formatter(PROJECT_NM)
+#class_lst = voc_formatter(PROJECT_NM)
+class_lst = main(PROJECT_NM)
 num_classes = len(class_lst)
 
 if not os.path.exists(YOLO_DIR + 'data/{}.names'.format(PROJECT_NM)):
@@ -61,3 +65,4 @@ if train_flag == 'Y':
     subprocess.call(YOLO_TRAIN_CMD, shell=True)
 else:
     print('Configuration Complete!')
+
