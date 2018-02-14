@@ -25,5 +25,6 @@ The darknet source code will actively [replace](https://groups.google.com/forum/
 * Make options for CUDA/OpenCV
 * options for train/val/test splits
 * other model weights & config
+* weight conversion for checkpoints
 * convert images
 
