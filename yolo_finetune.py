@@ -30,6 +30,9 @@ if not os.path.exists(YOLO_DIR + 'data/{}.names'.format(PROJECT_NM)):
         for cls in class_lst:
             nms_out.write(cls + '\n')
 
+if not os.path.exists(YOLO_DIR + PROJECT_NM + '_backup'):
+    os.mkdir(YOLO_DIR + PROJECT_NM + '_backup')
+
 if not os.path.exists(YOLO_DIR + 'cfg/{}.data'.format(PROJECT_NM)):
     YOLO_DATA = YOLO_DIR + 'data'
     with open(YOLO_DIR + 'cfg/{}.data'.format(PROJECT_NM), 'w') as cfg_out:

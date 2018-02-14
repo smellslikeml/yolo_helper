@@ -15,6 +15,11 @@ python yolo_finetune.py
 ```
 You will be prompted to enter a name for the project and the yolo repo will be installed if it is not already in the home directory.
 
+## Issues
+
+The darknet source code will actively [replace](https://groups.google.com/forum/#!topic/darknet/oa8WpnpxGe4) 'image' or 'img' with 'label' in input paths. This can trigger a seg fault while training so we avoid the conventional names, instead adopting the folder 'raw' for images.
+
+
 ## TODO
 * Add argparse
 * Make options for CUDA/OpenCV
