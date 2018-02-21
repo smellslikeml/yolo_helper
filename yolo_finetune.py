@@ -64,10 +64,10 @@ if not os.path.exists(YOLO_DIR + 'cfg/yolo-{}.cfg'.format(PROJECT_NM)):
 train_flag = input('Do you wish to train? [Y/N]')
 if train_flag == 'Y':
     os.chdir(YOLO_DIR)
-    YOLO_TRAIN_CMD = './darknet detector train cfg/{}.data cfg/yolo-{}.cfg darknet19_448.conv.23'.format(PROJECT_NM, PROJECT_NM)
+    YOLO_TRAIN_CMD = './darknet detector train cfg/{}.data cfg/yolo-{}.cfg darknet19_448.conv.23 -gpu 0,1'.format(PROJECT_NM, PROJECT_NM)
     num_gpus = int(input('How many gpus? '))
     if num_gpus > 0:
-        gpu_flg = ' -gpu ' + ','.join(list(map(str, list(range(num_gpus)))))
+        gpu_flg = ' -gpus ' + ','.join(list(map(str, list(range(num_gpus)))))
         YOLO_TRAIN_CMD += gpu_flg
     subprocess.call(YOLO_TRAIN_CMD, shell=True)
 else:
